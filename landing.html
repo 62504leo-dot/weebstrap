@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>5 Congreso de Ingenierías · Conectando Inteligencia</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* === INICIO DE CAMBIOS (CSS) === */
+    html {
+      /* 4. Esto hace que los links del menú se deslicen suavemente */
+      scroll-behavior: smooth;
+    }
+
+    /* 1. Fuente base más limpia */
+    body {
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* 1. Fuente "Tecnológica" para títulos y elementos destacados */
+    h1, h2, h3, h4, h5, h6, .fw-bold, .navbar-brand, .display-5 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+    }
+
+    /* 2. Diseño de fondo sutil para secciones claras */
+    [data-bs-theme="light"] .bg-light {
+      background-color: #f8f9fa !important;
+      /* Patrón de puntos sutil */
+      background-image: radial-gradient(#dddddd 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    
+    /* 3. Diseño de fondo sutil para modo oscuro */
+    [data-bs-theme="dark"] .bg-light {
+      /* Bootstrap lo convierte a var(--bs-dark-bg-subtle), lo forzamos */
+      background-color: #343a40 !important; 
+      /* Patrón de puntos más oscuros */
+      background-image: radial-gradient(#555555 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    /* === FIN DE CAMBIOS === */
+
+
+    /* Estilo para las fotos de los ponentes (se mantienen recortadas) */
+    .card-img-top {
+      height: 300px;
+      object-fit: cover; 
+    }
+    
+    /* Estilo para la imagen del HERO (se mantiene contenida) */
+    #hero .img-fluid {
+        max-height: 450px; 
+        width: auto; 
+        object-fit: contain; 
+    }
+    @media (max-width: 767.98px) {
+        #hero .img-fluid {
+            max-height: 300px;
+        }
+    }
+
+    /* Estilo para las fotos del carrusel (Galería) */
+    .carousel-item img {
+      height: 450px;           /* Una altura fija para el carrusel */
+      object-fit: contain;     /* 'contain' asegura que toda la foto se vea, sin recortar */
+      width: 100%;             /* Ocupa el ancho completo */
+      background-color: #eee;  /* Color de fondo para el espacio sobrante (letterboxing) */
+    }
+    /* Ajuste para tema oscuro */
+    [data-bs-theme="dark"] .carousel-item img {
+      background-color: #222;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-success navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <img src="img/Logo.png" alt="Logo UDL" style="height: 40px; margin-right: 12px;">
+      5to Congreso de Ingenierías
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mainMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#charlas">Conferencias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers">Talleres</a></li>
+          <li class="nav-item"><a class="nav-link" href="#registro">Registro</a></li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0 d-flex gap-2">
+          <button id="toggleTheme" class="btn btn-outline-light btn-sm">Modo oscuro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section id="hero" class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-md-6">
+        <h1 class="display-5 fw-bold">5 Congreso de Ingenierías</h1>
+        <p class="lead">Conectando Inteligencia Diseño y Colaboración</p>
+        <div class="d-flex gap-2">
+          <a href="#registro" class="btn btn-primary">Regístrate</a>
+          <a href="#charlas" class="btn btn-outline-primary">Ver Conferencias</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 text-center">
+        <img src="img/foto_segundo_congreso_36.jpeg" class="img-fluid rounded shadow" alt="Cartel promocional del 5to Congreso de Ingenierías">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="charlas" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Conferencias Principales</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/colin.jpeg" class="card-img-top" alt="Ing. Oscar Colin Cortes">
+          <div class="card-body">
+            <h5 class="card-title">IA Industrial Cibersegura</h5>
+            <p class="card-text">Ing. Oscar Colin Cortes</p>
+            <span class="badge text-bg-primary">SIEMENS</span>
+          </div>
+          <div class="card-footer bg-transparent">
+            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalCharla">Más info</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/coxca.jpeg" class="card-img-top" alt="Gilberto Coxca">
+          <div class="card-body">
+            <h5 class="card-title">Inspekto: Inteligencia Artificial con ADN Industria</h5>
+            <p class="card-text">Gilberto Coxca</p>
+            <span class="badge text-bg-primary">SIEMENS</span>
+          </div>
+          <div class="card-footer bg-transparent">
+            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalCharla">Más info</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="img/sanchez.jpeg" class="card-img-top" alt="Billy Sánchez Olivares">
+          <div class="card-body">
+            <h5 class="card-title">Robots Colaborativos</h5>
+            <p class="card-text">Billy Sánchez Olivares</p>
+            <span class="badge text-bg-success">GUREGO</span>
+          </div>
+          <div class="card-footer bg-transparent">
+            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalCharla">Más info</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="agenda" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Agenda del Evento</h2>
+    <div class="accordion" id="agendaAcc">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="day1h">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#day1" aria-expanded="true">Programa</button>
+        </h2>
+        <div id="day1" class="accordion-collapse collapse show" data-bs-parent="#agendaAcc">
+          <div class="accordion-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>7:00 - 7:30 Registro</span><span class="badge text-bg-secondary">Lobby</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>7:45 - 8:00 Inauguración</span><span class="badge text-bg-info">Auditorio</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>8:00 - 8:45 Conferencia 1</span><span class="badge text-bg-info">Auditorio</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>9:00 - 9:30 Desayuno</span><span class="badge text-bg-success">Lobby</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>9:45 - 10:30 Conferencia 2</span><span class="badge text-bg-info">Auditorio</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>10:45 - 11:30 Conferencia 3</span><span class="badge text-bg-info">Auditorio</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>11:45 - 12:15 Receso</span><span class="badge text-bg-secondary">Lobby</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>12:15 - 14:00 Talleres</span><span class="badge text-bg-warning">Salones</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>14:00 - 14:30 Clausura, Rifa y Toma de Fotografía</span><span class="badge text-bg-primary">Auditorio</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
+
+<section id="speakers" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Talleres Simultáneos</h2>
+    <div class="row g-4">
+      
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="img/martinez.jpeg" class="card-img-top" alt="Hugo Martínez Zepeda">
+          <div class="card-body">
+            <h5 class="card-title">Hugo Martínez Zepeda</h5>
+            <p class="card-text">Taller: Simulación con SolidWorks</p>
+            <span class="badge text-bg-warning">VIAS 3D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="img/macias.jpeg" class="card-img-top" alt="Dr. Ricardo Macías Jamaica">
+          <div class="card-body">
+            <h5 class="card-title">Dr. Ricardo Macías Jamaica</h5>
+            <p class="card-text">Taller: Ciencia de Datos</p>
+            <span class="badge text-bg-warning">TECNM-CELAYA</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="img/ferro.jpeg" class="card-img-top" alt="Ing. Rodolfo Ferro">
+          <div class="card-body">
+            <h5 class="card-title">Ing. Rodolfo Ferro</h5>
+            <p class="card-text">Taller: Una Introducción a las Neuronas Artificiales</p>
+            <span class="badge text-bg-warning">GAMECODER</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100">
+          <img src="img/alvarez.jpeg" class="card-img-top" alt="Ing. José Emmanuel Álvarez C.">
+          <div class="card-body">
+            <h5 class="card-title">Ing. José Emmanuel Álvarez C.</h5>
+            <p class="card-text">Taller: Manufactura Aditiva</p>
+            <span class="badge text-bg-warning">FLECHA AMARILLA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Galería</h2>
+    <div id="galeria" class="carousel slide" data-bs-ride="carousel">
+      
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="8" aria-label="Slide 9"></button>
+        <button type="button" data-bs-target="#galeria" data-bs-slide-to="9" aria-label="Slide 10"></button>
+      </div>
+
+      <div class="carousel-inner rounded shadow">
+        
+        <div class="carousel-item active">
+          <img src="img/foto_segundo_congreso_1.jpeg" class="d-block w-100" alt="Galería del congreso (1)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_2.jpeg" class="d-block w-100" alt="Galería del congreso (2)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_3.jpeg" class="d-block w-100" alt="Galería del congreso (3)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_4.jpeg" class="d-block w-100" alt="Galería del congreso (4)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_5.jpeg" class="d-block w-100" alt="Galería del congreso (5)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_6.jpeg" class="d-block w-100" alt="Galería del congreso (6)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_7.jpeg" class="d-block w-100" alt="Galería del congreso (7)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_8.jpeg" class="d-block w-100" alt="Galería del congreso (8)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_9.jpeg" class="d-block w-100" alt="Galería del congreso (9)">
+        </div>
+        <div class="carousel-item">
+          <img src="img/foto_segundo_congreso_10.jpeg" class="d-block w-100" alt="Galería del congreso (10)">
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#galeria" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#galeria" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="registro" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Registro</h2>
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-6">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" required>
+        <div class="invalid-feedback">Ingresa tu nombre.</div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Correo</label>
+        <input type="email" class="form-control" required>
+        <div class="invalid-feedback">Correo inválido.</div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success" type="submit">Enviar</button>
+      </div>
+    </form>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="toastOk" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Registro</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+        </div>
+        <div class="toast-body">¡Registro enviado con éxito!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-4 bg-body-tertiary">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <nav aria-label="breadcrumb" class="mb-2 mb-md-0">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="#hero">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registro</li>
+      </ol>
+    </nav>
+    <small class="text-muted">© 2025 5to Congreso de Ingenierías</small>
+  </div>
+</footer>
+
+<div class="modal fade" id="modalCharla" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalles de la charla/taller</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Aquí puedes poner la descripción completa, biografía del ponente, o cualquier otra información que venga en tu PDF.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Script completo y funcional
+(() => {
+  // --- Validación Bootstrap + toast ---
+  const form = document.querySelector('.needs-validation');
+  const toastEl = document.getElementById('toastOk');
+  const toast = toastEl ? new bootstrap.Toast(toastEl) : null;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+    } else {
+      toast?.show();
+      form.reset();
+      form.classList.remove('was-validated');
+      return;
+    }
+    form.classList.add('was-validated');
+  });
+
+  // --- Toggle dark / light (Ajustado para el botón en barra verde) ---
+  const btnTheme = document.getElementById('toggleTheme');
+  const html = document.documentElement;
+
+  btnTheme?.addEventListener('click', () => {
+    const newTheme = html.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-bs-theme', newTheme);
+    
+    // Ajuste para el botón del tema
+    if (newTheme === 'dark') {
+        btnTheme.classList.remove('btn-outline-light');
+        btnTheme.classList.add('btn-outline-secondary'); // Color para el offcanvas oscuro
+        btnTheme.textContent = "Modo claro";
+    } else {
+        btnTheme.classList.remove('btn-outline-secondary');
+        btnTheme.classList.add('btn-outline-light');
+        btnTheme.textContent = "Modo oscuro";
+    }
+  });
+  
+  // Script inicial para el botón de tema
+  // (Asegura que el botón tenga el estilo correcto al cargar)
+  if (html.getAttribute('data-bs-theme') === 'dark') {
+      btnTheme.classList.remove('btn-outline-light');
+      btnTheme.classList.add('btn-outline-secondary');
+      btnTheme.textContent = "Modo claro";
+  }
+})();
+</script>
+</body>
+</html>
