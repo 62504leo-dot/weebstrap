@@ -11,43 +11,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     /* === INICIO DE CAMBIOS (CSS) === */
     html {
-      /* 4. Esto hace que los links del menú se deslicen suavemente */
+      /* Esto hace que los links del menú se deslicen suavemente */
       scroll-behavior: smooth;
     }
 
-    /* 1. Fuente base más limpia */
-    body {
-      font-family: 'Lato', sans-serif;
-    }
-
-    /* 1. Fuente "Tecnológica" para títulos y elementos destacados */
+    /* Fuente "Tecnológica" para títulos y elementos destacados */
     h1, h2, h3, h4, h5, h6, .fw-bold, .navbar-brand, .display-5 {
       font-family: 'Exo 2', sans-serif;
       font-weight: 700;
     }
+    
+    /* --- NUEVO DISEÑO DE FONDO --- */
+    body {
+      font-family: 'Lato', sans-serif;
+      /* Un patrón de líneas diagonales sutil */
+      /* Usa variables de CSS de Bootstrap para funcionar automáticamente con modo oscuro */
+      background-color: var(--bs-body-bg); 
+      background-image: linear-gradient(135deg, var(--bs-tertiary-bg) 25%, transparent 25%),
+                        linear-gradient(225deg, var(--bs-tertiary-bg) 25%, transparent 25%),
+                        linear-gradient(45deg, var(--bs-tertiary-bg) 25%, transparent 25%),
+                        linear-gradient(315deg, var(--bs-tertiary-bg) 25%, var(--bs-body-bg) 25%);
+      background-size: 20px 20px;
+      background-attachment: fixed; /* El fondo no se mueve con el scroll */
+    }
 
-    /* 2. Diseño de fondo sutil para secciones claras */
+    /* Hacemos que las secciones .bg-light sean sólidas para que contrasten */
     [data-bs-theme="light"] .bg-light {
       background-color: #f8f9fa !important;
-      /* Patrón de puntos sutil */
-      background-image: radial-gradient(#dddddd 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-image: none; /* Quitamos el patrón */
+      /* Añadimos una sombra interna para separarlo del fondo */
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
     }
-    
-    /* 3. Diseño de fondo sutil para modo oscuro */
+
     [data-bs-theme="dark"] .bg-light {
-      /* Bootstrap lo convierte a var(--bs-dark-bg-subtle), lo forzamos */
-      background-color: #343a40 !important; 
-      /* Patrón de puntos más oscuros */
-      background-image: radial-gradient(#555555 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-color: var(--bs-dark-bg-subtle) !important;
+      background-image: none; /* Quitamos el patrón */
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
     }
-    /* === FIN DE CAMBIOS === */
-
-
+    /* --- FIN NUEVO DISEÑO --- */
+    
     /* Estilo para las fotos de los ponentes (se mantienen recortadas) */
     .card-img-top {
       height: 300px;
@@ -77,7 +83,6 @@
     [data-bs-theme="dark"] .carousel-item img {
       background-color: #222;
     }
-
   </style>
 </head>
 <body>
